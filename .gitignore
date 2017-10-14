@@ -1,1 +1,4 @@
 env_vars/aws_vault.yml
+env_vars/traineeid.yml
+*.retry
+.idea/
