@@ -2,3 +2,5 @@ env_vars/aws_vault.yml
 env_vars/traineeid.yml
 *.retry
 .idea/
+d1l1_configurar_nginx.yml
+inventories/*
