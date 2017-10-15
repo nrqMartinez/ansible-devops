@@ -156,9 +156,8 @@ En cualquier caso, si os falla deberíais ser capaces de localizar donde está e
 # Fin del laboratorio
 
 En este laboratorio se habrán adquirido los siguientes conocimientos:
-- Creación de un repositorio organizativo
-- Configuración por defecto de ansible
-- Dependencias de un playbook
+- Uso de los bucles para tareas repetitivas
+- Refactorización de código para mejor legibilidad del mismo
 
 Procederemos a la destrucción del laboratorio:
 
