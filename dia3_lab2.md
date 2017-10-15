@@ -71,7 +71,7 @@ from ansible.module_utils.basic import AnsibleModule
 def can_reach(module, host, port, timeout):
     nc_path = module.get_bin_path('nc', required=True)
     args = [nc_path, "-w", str(timeout),
-            host, str(port),"</dev/null"]
+            host, str(port)]
     (rc, stdout, stderr) = module.run_command(args)
     return rc == 0
 
@@ -88,8 +88,8 @@ def main():
     # In check mode, we take no action
     # Since this module never changes system state, we just
     # return changed=False
-    if module.check_mode: 9
-        module.exit_json(changed=False) 
+    if module.check_mode:
+        module.exit_json(changed=False)
 
     host = module.params['host']
     port = module.params['port']
@@ -105,7 +105,21 @@ if __name__ == "__main__":
     main()
 ```
 
+Implementaremos este script en el directorio "library" del playbook con el nombre "can_reach"
 
+Y modificaremos la llamada para que use el módulo en la tasklist del rol:
+
+```yaml
+- name: run my custom module
+  can_reach: host=www.google.com port=80 timeout=1
+```
+
+
+## Ejercicio 4: ver ejemplos de módulos
+
+https://github.com/ansible/ansible/tree/devel/lib/ansible/modules
+
+Y recomendado, capítulo 12 del libro "Ansible: Up and Running"
 
 # Fin del laboratorio
 
