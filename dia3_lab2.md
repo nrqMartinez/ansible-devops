@@ -124,8 +124,8 @@ Y recomendado, capítulo 12 del libro "Ansible: Up and Running"
 # Fin del laboratorio
 
 En este laboratorio se habrán adquirido los siguientes conocimientos:
-- Templating de jinja y estructuras de control
-- Filtros custom de Jinja
+- Ejecución de funciones no disponibles en ansible mediante scripts
+- Creación de módulos custom para cubrir necesidades que ansible no cubre
 
 Procederemos a la destrucción del laboratorio:
 
