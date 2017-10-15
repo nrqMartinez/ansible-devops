@@ -4,3 +4,5 @@ env_vars/traineeid.yml
 .idea/
 d1l1_configurar_nginx.yml
 inventories/*
+roles/*
+templates/*

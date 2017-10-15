@@ -332,3 +332,52 @@ Usaremos el módulo copy para copiarla, y asignarle los permisos que espera ngin
         src: files/index.html
         dest: /usr/share/nginx/html/index.html
 ```
+
+# Ejercicio 2
+
+Vamos a ver un poco el funcionamiento de las plantillas. 
+
+La página de inicio va a variar en función del hostname donde se ejecute.
+
+Para ello lo primero que haremos será crear el directorio templates
+
+```bash
+mkdir templates
+```
+
+Y copiaremos la página de inicio estática dentro, pero con extensión ".j2"
+
+```bash
+cp files/index.html templates/index.html.j2
+```
+
+Aprovecharemos los facts que recoge ansible para hacer nuestra página dinámica, dejándo el fichero con 
+el siguiente contenido:
+
+```html
+<html>
+<head><title>P&aacute;gina aburrida de inicio</title></head>
+<body>
+&Eacute;sto es una p&aacute;gina aburrida de inicio<br />
+Y se ejecuta en {{ ansible_nodename }}
+</body>
+</html>
+```
+
+Y cambiaremos el módulo de despliegue de "copy" a "template", adaptando los parámetros también:
+
+```yaml
+- name: desplegar página de bienvenida
+  hosts: www
+  become: True
+  tasks:
+    - name: copiar página de bienvenida
+      template:
+        src: templates/index.html.j2
+        dest: /usr/share/nginx/html/index.html
+```
+
+Si ejecutamos de nuevo el playbook veremos que despliega la página y que es diferente en los tres nodos.
+
+
+
