@@ -5,6 +5,7 @@ env_vars/traineeid.yml
 d1l1_configurar_nginx.yml
 d2l3_configurar_env.yml
 d2l5_paquetes_minimos.yml
+d3l1_jinja_part1.yml
 inventories/*
 roles/*
 templates/*
