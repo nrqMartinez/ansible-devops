@@ -379,5 +379,107 @@ Y cambiaremos el módulo de despliegue de "copy" a "template", adaptando los par
 
 Si ejecutamos de nuevo el playbook veremos que despliega la página y que es diferente en los tres nodos.
 
+# Ejercicio 3
 
+Vamos a separar las tareas de la play de nginx en un rol, para hacer que el mantenimiento del playbook sea
+más simple.
+
+1. Creamos la carpeta roles/nginx en el host de control
+
+```bash
+mkdir -p roles/nginx
+```
+
+2. Mirando los componentes que usa el rol nginx vemos que son: files, tasks, handlers por lo que creamos lo siguiente en el host de control
+
+```bash
+mkdir -p roles/nginx/tasks
+mkdir -p roles/nginx/handlers
+mkdir -p roles/nginx/files
+```
+
+3. Copiamos los ficheros de config de nginx dentro del rol
+
+```bash
+cp files/nginx.conf roles/nginx/files
+cp files/vhost_default.conf roles/nginx/files
+```
+4. Creamos el fichero de handlers "roles/nginx/handlers/main.yml" y ponemos el handler dentro
+
+```yaml
+- name: reload nginx
+  service:
+    name: nginx
+    state: reloaded
+```
+
+5. Creamos el fichero de tareas "roles/nginx/tasks/main.yml" y traspasamos/adaptamos las tareas
+
+```yaml
+- name: instalar paquete nginx
+  yum:
+    name: "nginx"
+    state: present
+- name: configuración base nginx
+  copy:
+    src: files/nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: reload nginx
+- name: configuración vhost nginx
+  copy:
+    src: files/vhost_default.conf
+    dest: /etc/nginx/conf.d/vhost_default.conf
+  notify: reload nginx
+- name: arrancar nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+```
+
+Ahora ya tendríamos preparado el rol, por lo que modificaremos el playbook:
+
+```yaml
+- name: configurar nginx
+  hosts: www
+  become: True
+  roles:
+    - nginx
+    
+- name: desplegar página de bienvenida
+  hosts: www
+  become: True
+  tasks:
+    - name: copiar página de bienvenida
+      template:
+        src: templates/index.html.j2
+        dest: /usr/share/nginx/html/index.html
+```
+
+Hacemos limpieza de ficheros
+```bash
+rm -f files/nginx.conf
+rm -f files/vhost_default.conf
+```
+
+Si ejecutamos el playbook, no debería cambiar nada, sólo hemos refactorizado el código.
+
+# Fin del laboratorio
+
+Ha acabado el laboratorio, tras él deberíamos haber asimilado los conceptos de:
+- playbook
+- play
+- task
+- handler
+- role
+- variable (var)
+- fact
+- template
+- inventory
+
+Procederemos a la destrucción del laboratorio:
+
+```bash
+ansible-playbook borrar-labs1s1.yml
+```
 
