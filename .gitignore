@@ -3,6 +3,7 @@ env_vars/traineeid.yml
 *.retry
 .idea/
 d1l1_configurar_nginx.yml
+d2l3_configurar_env.yml
 inventories/*
 roles/*
 templates/*
