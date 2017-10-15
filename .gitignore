@@ -4,6 +4,7 @@ env_vars/traineeid.yml
 .idea/
 d1l1_configurar_nginx.yml
 d2l3_configurar_env.yml
+d2l5_paquetes_minimos.yml
 inventories/*
 roles/*
 templates/*
