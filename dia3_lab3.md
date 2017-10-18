@@ -188,6 +188,15 @@ Acabaremos el laboratorio parando las máquinas de vagrant con ```vagrant destro
 Este ejercicio puede y debe seguirse por todos los alumnos. Configuraremos en la vagrant que se ha usado durante
 todo el curso el inventario dinámico contra la cuenta de AWS en la que se crean los laboratorios.
 
+**Nota:** algunas de las configuraciones de este inventario dinámico son complejas y solo comprensibles con
+conocimiento de como funciona el cloud de AWS. No os preocupéis si hay algún concepto que no os queda claro.
+A modo de glosario especificamos:
+- EC2 : servicio de máquinas virtuales de AWS
+- RDS : servicio de bases de datos como servicio de AWS
+- ElastiCache : servicio de instancias de caché (redis o memcache) como servicio de AWS
+- secret/key par : conjunto de clave y palabra secreta que se utilizan para acceder a la API de AWS
+- region : zona geográfica que se usa de AWS (en el curso estamos usando Irlanda, reperesentada por eu-west-1)
+
 Lo primero es asegurarse de que existen máquinas arrancadas en AWS. Para ello lanzaremos el siguiente comando:
 
 ```text
