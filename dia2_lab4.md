@@ -1,4 +1,4 @@
-# Dia 2 - Laboratorio 3
+# Dia 2 - Laboratorio 4
 
 El objetivo de este laboratorio es aprender como crear un repositorio de organización, y como 
 integrar playbooks y roles existentes en él.
