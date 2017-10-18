@@ -287,7 +287,7 @@ especifique ni el usuario de ssh ni la clave a usar.
 Para solucionarlo podemos pasar más parámetros al comando ansible-playbook (que para una vez ya está bien), o podemos
 utilizar el **fichero de configuración de ansible**.
 
-En la raíz del repositorio hay un fichero que ha pasado desaperciobido, hasta ahora, es el ```ansible.cfg```
+En la raíz del repositorio hay un fichero que ha pasado desapercibido, hasta ahora, es el ```ansible.cfg```
 
 Este fichero contiene configuración que queremos que sea por defecto para los comandos de ansible.
 
