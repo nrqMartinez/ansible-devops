@@ -1,4 +1,4 @@
-# Dia 2 - Laboratorio 3
+# Dia 2 - Laboratorio 5
 
 El objetivo de este laboratorio es aprender como aprovechar las iteraciones para ahorrarnos escribir código.
 
