@@ -421,5 +421,9 @@ El problema está en un bug conocido de InSpec (https://github.com/chef/inspec/i
 Hasta entonces, deberemos comentar el test de que proceso controla un puerto :(
 
 
+## Limpiar entorno de test
+
+Para acabar, limpiaremos el entorno de test con ```kitchen destroy```
+
 
 
