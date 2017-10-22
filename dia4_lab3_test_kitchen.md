@@ -56,6 +56,7 @@ driver:
 ```
 
 - En el platform hay que indicar:
+
 ```yaml
   - name:  {{ nombre }}
     driver_config:
