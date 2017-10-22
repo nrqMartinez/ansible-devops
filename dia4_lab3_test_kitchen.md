@@ -397,10 +397,10 @@ Llegados a este punto tenemos dos opciones, ambas válidas:
 - Activar el repositorio en los comandos que inician el entorno de test
 
 Debatamos un poco ambas opciones...
-1) La primera opción nos obligará a que si otros paquetes también se instalan desde EPEL , todos los roles la deben 
+1. La primera opción nos obligará a que si otros paquetes también se instalan desde EPEL , todos los roles la deben 
 implementar de la misma forma para ser consistente
-2) La segunda opción nos obligará a recrear el entorno de test
-3) ??
+2. La segunda opción nos obligará a recrear el entorno de test
+3. ??
 
 Para nuestro lab, vamos a hacer la primera opción, que es añadir ```yum -y install epel-release``` en el array 
 ```provision_command``` del fichero ```.kitchen.yml```
