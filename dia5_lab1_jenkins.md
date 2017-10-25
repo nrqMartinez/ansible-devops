@@ -57,7 +57,7 @@ ansible-playbook crear-controller-aws.yml -e "NOMBRE_ALUMNO=Jordi"
 **Jenkins**
 
 ```text
-ansible-playbook crear-controller-aws.yml -e "NOMBRE_ALUMNO=Jordi"
+ansible-playbook crear-jenkins-aws.yml -e "NOMBRE_ALUMNO=Jordi"
 ```
 
 También si nos fijamos, existe ya el fichero aws_vault.yml... investigar un poco como almacena las credenciales..
