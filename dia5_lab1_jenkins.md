@@ -123,8 +123,8 @@ On Jenkins
         1.	Select ‘Pipeline Script from SCM’. Note this assumes that the root folder of your repo will contain a ‘Jenkinsfile’
         2.	SCM: Select ‘Git’
         3.	Repositories – enter repo detail. For credentials use ‘username-password’ based credentials.
-        4.	Click Advanced and add refspec as +refs/pull/*:refs/remotes/origin/pr/*
-        5.	Branch – should be ${sha1}
+        4.	Click Advanced and add refspec ```+refs/pull/*:refs/remotes/origin/pr/*```
+        5.	Branch – should be ```${sha1}```
         6.	Script Path: defaulted to Jenkinsfile, leave as is.
         7.	Lightweight Checkout - Uncheck this (https://github.com/jenkinsci/ghprb-plugin/issues/507)
 That’s it. You are all set. Creating a PR on master branch of your repo should now trigger your Jenkins Pipeline job
